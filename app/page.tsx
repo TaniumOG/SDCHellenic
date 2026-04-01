@@ -31,9 +31,13 @@ export default function Home() {
 
   return (
     <main className="page">
-      <header className="header">
+      <header className="header glass">
+        <p className="eyebrow">Pricing intelligence dashboard</p>
         <h1>Zimstock Pricing Scenario Simulator</h1>
-        <p>Model ticket revenue over time using phase pricing, demand assumptions, and venue capacity.</p>
+        <p>
+          Tune capacity, price ladders, and demand pressure to see how each scenario affects sell-through and
+          projected revenue.
+        </p>
       </header>
 
       <section className="tabs">
@@ -49,7 +53,7 @@ export default function Home() {
       </section>
 
       <section className="layout">
-        <aside className="panel left">
+        <aside className="panel left glass">
           <h2>Event Inputs</h2>
           <label>
             Event Date
@@ -197,7 +201,7 @@ export default function Home() {
           </div>
         </aside>
 
-        <section className="panel right">
+        <section className="panel right glass">
           <div className="kpis">
             <article>
               <h3>Projected Revenue</h3>
@@ -217,14 +221,20 @@ export default function Home() {
             </article>
           </div>
 
-          <h2>Cumulative Revenue</h2>
-          <LineChart points={result.curve} metric="cumulativeRevenue" color="#14b8a6" />
-
-          <h2>Cumulative Tickets</h2>
-          <LineChart points={result.curve} metric="cumulativeTickets" color="#3b82f6" />
-
-          <h2>Remaining Capacity</h2>
-          <LineChart points={result.curve} metric="remainingCapacity" color="#f97316" />
+          <div className="chart-stack">
+            <section>
+              <h2>Cumulative Revenue</h2>
+              <LineChart points={result.curve} metric="cumulativeRevenue" color="#2dd4bf" />
+            </section>
+            <section>
+              <h2>Cumulative Tickets</h2>
+              <LineChart points={result.curve} metric="cumulativeTickets" color="#60a5fa" />
+            </section>
+            <section>
+              <h2>Remaining Capacity</h2>
+              <LineChart points={result.curve} metric="remainingCapacity" color="#fb923c" />
+            </section>
+          </div>
 
           <h2>Revenue by Phase</h2>
           <table>
